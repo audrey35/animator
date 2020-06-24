@@ -51,18 +51,27 @@ public class SVGView implements IView {
 
   private void createSVG() {
     this.createHeader();
-
+    List<String> shapeOrder = this.model.getShapeOrder();
     HashMap<String, IShape> shapes = this.model.getShapes();
     HashMap<String, List<ITransformation>> transformations = this.model.getTransformations();
-    String name;
     IShape shape;
     List<ITransformation> trans;
-
-    for (Map.Entry mapElement : shapes.entrySet()) {
-      name = (String) mapElement.getKey();
-      shape = (IShape) mapElement.getValue();
+    int count = 0;
+    int rect = 0;
+    int non = 0;
+    for (String name : shapeOrder) {
+      shape = shapes.get(name);
       if (transformations.containsKey(name)) {
         trans = transformations.get(name);
+        if (shape.getType() == ShapeType.ELLIPSE) {
+          count += 1;
+        }
+        else if (shape.getType() == ShapeType.RECTANGLE) {
+          rect += 1;
+        }
+        else {
+          non += 1;
+        }
         this.addShapeSVG(shape, trans);
       }
     }
@@ -109,7 +118,7 @@ public class SVGView implements IView {
       if (shapeType == ShapeType.RECTANGLE) {
         this.addRectangleMoveSVG(t);
       }
-      else {
+      else if (shapeType == ShapeType.ELLIPSE) {
         this.addEllipseMoveSVG(t);
       }
     }

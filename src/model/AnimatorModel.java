@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AnimatorModel implements IAnimatorModel {
-
+  List<String> shapeOrder;
   HashMap<String, IShape> shapes;
   HashMap<String, List<ITransformation>> transformations;
   HashMap<String, List<IKeyframe>> keyframes;
@@ -16,6 +16,7 @@ public class AnimatorModel implements IAnimatorModel {
   int height;
 
   public AnimatorModel() {
+    this.shapeOrder = new ArrayList<>();
     this.shapes = new HashMap<>();
     this.transformations = new HashMap<>();
     this.keyframes = new HashMap<>();
@@ -28,7 +29,8 @@ public class AnimatorModel implements IAnimatorModel {
   @Override
   public void addShape(ShapeType type, String name, int t, int x, int y, int w, int h,
                        int r, int g, int b) {
-    if (!this.shapes.containsKey(name)) {
+    if (!this.shapeOrder.contains(name)) {
+      this.shapeOrder.add(name);
       IShape shape = ShapeFactory.createShape(type, name, t, x, y, w, h, r, g, b);
       this.shapes.put(name, shape);
     }
@@ -36,7 +38,7 @@ public class AnimatorModel implements IAnimatorModel {
 
   @Override
   public void addKeyFrames(String name, List<IKeyframe> keyframes) {
-    if (this.shapes.containsKey(name)) {
+    if (this.shapeOrder.contains(name)) {
       if (this.keyframes.containsKey(name)) {
         List<IKeyframe> keys = this.keyframes.get(name);
         for (IKeyframe k : keyframes) {
@@ -57,7 +59,7 @@ public class AnimatorModel implements IAnimatorModel {
   @Override
   public void addTransformations(String name, List<ITransformation> transformations) {
     List<ITransformation> trans;
-    if (this.shapes.containsKey(name)) {
+    if (this.shapeOrder.contains(name)) {
       if (this.transformations.containsKey(name)) {
         trans = this.transformations.get(name);
         for (ITransformation t : transformations) {
@@ -81,6 +83,11 @@ public class AnimatorModel implements IAnimatorModel {
     this.y = y;
     this.width = width;
     this.height = height;
+  }
+
+  @Override
+  public List<String> getShapeOrder() {
+    return this.shapeOrder;
   }
 
   @Override

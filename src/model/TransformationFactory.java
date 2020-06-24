@@ -25,6 +25,9 @@ public class TransformationFactory {
               t2, x1, y1, w1, h1, r2, g2, b2);
       trans.add(t);
     }
+    t = new MoveTransformation(shapeName, t1, x1, y1, w1, h1, r1, g1, b1,
+            t2, x2, y2, w2, h2, r2, g2, b2);
+    trans.add(t);
     return trans;
   }
 }

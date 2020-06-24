@@ -9,6 +9,7 @@ import java.util.Map;
 import model.AnimatorModel;
 import model.IAnimatorModel;
 import model.IKeyframe;
+import model.IShape;
 import model.ITransformation;
 import model.Keyframe;
 import model.ShapeType;
@@ -17,12 +18,14 @@ import model.TransformationFactory;
 public class ModelAdapter implements AnimationBuilder<IAnimatorModel> {
 
   IAnimatorModel model;
+  List<String> shapeOrder;
   HashMap<String, ShapeType> shapes;
   HashMap<String, List<ITransformation>> transformations;
   HashMap<String, List<IKeyframe>> keyframes;
 
   public ModelAdapter() {
     this.model = new AnimatorModel();
+    this.shapeOrder = new ArrayList<>();
     this.shapes = new HashMap<>();
     this.transformations = new HashMap<>();
     this.keyframes = new HashMap<>();
@@ -30,18 +33,16 @@ public class ModelAdapter implements AnimationBuilder<IAnimatorModel> {
 
   @Override
   public IAnimatorModel build() {
-    String name;
     ShapeType type;
     ITransformation shapeState;
     IKeyframe shapeStateKey;
     List<ITransformation> trans;
     List<IKeyframe> keys;
     int t; int x; int y; int w; int h; int r; int g; int b;
-    for (Map.Entry mapElement : this.shapes.entrySet()) {
+    for (String name : this.shapeOrder) {
       trans = new ArrayList<>();
       keys = new ArrayList<>();
-      name = (String) mapElement.getKey();
-      type = (ShapeType) mapElement.getValue();
+      type = this.shapes.get(name);
       if (this.transformations.containsKey(name)) {
         trans = this.transformations.get(name);
       }
@@ -118,8 +119,11 @@ public class ModelAdapter implements AnimationBuilder<IAnimatorModel> {
   @Override
   public AnimationBuilder<IAnimatorModel> declareShape(String name, String type) {
     ShapeType shapeType = ShapeType.fromString(type);
+    if (type.contains("p")) {
+    }
     if (shapeType != null) {
-      if (!this.shapes.containsKey(name)) {
+      if (!this.shapeOrder.contains(name)) {
+        this.shapeOrder.add(name);
         this.shapes.put(name, shapeType);
       }
     }

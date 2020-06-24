@@ -13,6 +13,8 @@ public interface IAnimatorModel {
 
   void setBounds(int x, int y, int width, int height);
 
+  List<String> getShapeOrder();
+
   HashMap<String, IShape> getShapes();
 
   HashMap<String, List<ITransformation>> getTransformations();
