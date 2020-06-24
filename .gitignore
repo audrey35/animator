@@ -1,2 +1,6 @@
-/.idea/
+/.idea/*
 /animator.iml
+/META-INF/*
+/out/production/*
+/out/test/*
+*.DS_Store

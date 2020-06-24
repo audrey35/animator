@@ -1,0 +1,13 @@
+<svg width="360" height="360" viewBox="200 70 360 360" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+<rect id="R" x="200" y="200" width="50" height="100" fill="rgb(255,0,0)" visibility="visible" >
+    <animate attributeType="xml" begin="510ms" dur="950ms" attributeName="width" from="50" to="25" fill="freeze" />
+    <animate attributeType="xml" begin="700ms" dur="1500ms" attributeName="x" from="300" to="200" fill="freeze" />
+    <animate attributeType="xml" begin="700ms" dur="1500ms" attributeName="y" from="300" to="200" fill="freeze" />
+</rect>
+<ellipse id="C" cx="440" cy="70" rx="120" ry="60" fill="rgb(0,0,255)" visibility="visible" >
+    <animate attributeType="xml" begin="500ms" dur="1000ms" attributeName="cy" from="250" to="370" fill="freeze" />
+    <animate attributeType="xml" begin="500ms" dur="1000ms" attributeName="fill" from="rgb(0,0,255)" to="rgb(0,170,85)" fill="freeze" />
+    <animate attributeType="xml" begin="700ms" dur="500ms" attributeName="fill" from="rgb(0,170,85)" to="rgb(0,255,0)" fill="freeze" />
+</ellipse>
+</svg>
