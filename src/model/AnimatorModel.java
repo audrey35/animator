@@ -6,14 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AnimatorModel implements IAnimatorModel {
-  List<String> shapeOrder;
-  HashMap<String, IShape> shapes;
-  HashMap<String, List<ITransformation>> transformations;
-  HashMap<String, List<IKeyframe>> keyframes;
+  final List<String> shapeOrder;
+  final HashMap<String, IShape> shapes;
+  final HashMap<String, List<ITransformation>> transformations;
+  final HashMap<String, List<IKeyframe>> keyframes;
   int x;
   int y;
   int width;
   int height;
+  int speed;
 
   public AnimatorModel() {
     this.shapeOrder = new ArrayList<>();
@@ -24,6 +25,7 @@ public class AnimatorModel implements IAnimatorModel {
     this.y = 0;
     this.width = 0;
     this.height = 0;
+    this.speed = 1;
   }
 
   @Override
@@ -123,5 +125,10 @@ public class AnimatorModel implements IAnimatorModel {
   @Override
   public int getBoundHeight() {
     return this.height;
+  }
+
+  @Override
+  public void addSpeed(int speed) {
+    this.speed = speed;
   }
 }

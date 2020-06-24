@@ -1,9 +1,9 @@
 # Animator
 
-Objective is to create an animator that can read from a text file and generate an svg or an animation.
+Objective is to create an animator that can read from a text file and generate a svg or an animation.
 
 ## How to run the program from the command line
-1. Create animator.jar file by
+1. Create an animator.jar file by
 - go to File -> Project Structure
 - go to Artifacts
 - add a JAR -> From modules with dependencies...

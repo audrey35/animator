@@ -2,14 +2,11 @@ package view;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import model.ColorTransformation;
 import model.IAnimatorModel;
-import model.IKeyframe;
 import model.IShape;
 import model.ITransformation;
 import model.MoveTransformation;
@@ -17,8 +14,8 @@ import model.ScaleTransformation;
 import model.ShapeType;
 
 public class SVGView implements IView {
-  IAnimatorModel model;
-  String outputPath;
+  final IAnimatorModel model;
+  final String outputPath;
   String svg;
 
   public SVGView(IAnimatorModel model, String outputPath) {
@@ -50,35 +47,23 @@ public class SVGView implements IView {
   }
 
   private void createSVG() {
-    this.createHeader();
+    this.addHeader();
     List<String> shapeOrder = this.model.getShapeOrder();
     HashMap<String, IShape> shapes = this.model.getShapes();
     HashMap<String, List<ITransformation>> transformations = this.model.getTransformations();
     IShape shape;
     List<ITransformation> trans;
-    int count = 0;
-    int rect = 0;
-    int non = 0;
     for (String name : shapeOrder) {
       shape = shapes.get(name);
       if (transformations.containsKey(name)) {
         trans = transformations.get(name);
-        if (shape.getType() == ShapeType.ELLIPSE) {
-          count += 1;
-        }
-        else if (shape.getType() == ShapeType.RECTANGLE) {
-          rect += 1;
-        }
-        else {
-          non += 1;
-        }
         this.addShapeSVG(shape, trans);
       }
     }
     this.svg += "</svg>";
   }
 
-  private void createHeader() {
+  private void addHeader() {
     this.svg = String.format("<svg width=\"%d\" height=\"%d\" viewBox=\"%d %d %d %d\" version=\"1.1\""
                     + "\n     xmlns=\"http://www.w3.org/2000/svg\">\n",
             this.model.getBoundWidth(), this.model.getBoundHeight(),

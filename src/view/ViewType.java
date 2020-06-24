@@ -3,7 +3,7 @@ package view;
 public enum ViewType {
   SVG("svg"), VISUAL("visual");
 
-  private String viewType;
+  private final String viewType;
 
   /**
    * Constructs an enum.

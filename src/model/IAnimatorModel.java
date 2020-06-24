@@ -28,4 +28,6 @@ public interface IAnimatorModel {
   int getBoundWidth();
 
   int getBoundHeight();
+
+  void addSpeed(int speed);
 }

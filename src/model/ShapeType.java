@@ -3,7 +3,7 @@ package model;
 public enum ShapeType {
   RECTANGLE("rectangle"), ELLIPSE("ellipse");
 
-  private String shapeType;
+  private final String shapeType;
 
   ShapeType(String type) {
     this.shapeType = type;

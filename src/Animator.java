@@ -39,7 +39,9 @@ public final class Animator {
     try {
       Readable animationFile = new FileReader(new File(inPath));
       IAnimatorModel model = AnimationReader.parseFile(animationFile, new ModelAdapter());
+      model.addSpeed(speed);
       IView view = ViewFactory.createView(ViewType.fromString(viewType), model, outPath);
+      assert view != null;
       if (outPath.equals("System.out")) {
         view.render();
       } else {

@@ -4,3 +4,4 @@
 /out/production/*
 /out/test/*
 *.DS_Store
+/codemr/

@@ -1,15 +1,15 @@
 package model;
 
 public class Keyframe implements IKeyframe {
-  String shapeName;
-  int t;
-  int x;
-  int y;
-  int w;
-  int h;
-  int r;
-  int g;
-  int b;
+  final String shapeName;
+  final int t;
+  final int x;
+  final int y;
+  final int w;
+  final int h;
+  final int r;
+  final int g;
+  final int b;
   public Keyframe(String shapeName, int t, int x, int y, int w, int h, int r, int g, int b) {
     this.shapeName = shapeName;
     this.t = t;

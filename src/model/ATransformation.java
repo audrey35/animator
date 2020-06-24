@@ -1,23 +1,23 @@
 package model;
 
 public class ATransformation implements ITransformation {
-  String shapeName;
-  int t1;
-  int x1;
-  int y1;
-  int w1;
-  int h1;
-  int r1;
-  int g1;
-  int b1;
-  int t2;
-  int x2;
-  int y2;
-  int w2;
-  int h2;
-  int r2;
-  int g2;
-  int b2;
+  final String shapeName;
+  final int t1;
+  final int x1;
+  final int y1;
+  final int w1;
+  final int h1;
+  final int r1;
+  final int g1;
+  final int b1;
+  final int t2;
+  final int x2;
+  final int y2;
+  final int w2;
+  final int h2;
+  final int r2;
+  final int g2;
+  final int b2;
 
   public ATransformation(String shapeName,
                          int t1, int x1, int y1, int w1, int h1, int r1, int g1, int b1,

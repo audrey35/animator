@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import model.AnimatorModel;
 import model.IAnimatorModel;
 import model.IKeyframe;
-import model.IShape;
 import model.ITransformation;
 import model.Keyframe;
 import model.ShapeType;
@@ -17,11 +15,11 @@ import model.TransformationFactory;
 
 public class ModelAdapter implements AnimationBuilder<IAnimatorModel> {
 
-  IAnimatorModel model;
-  List<String> shapeOrder;
-  HashMap<String, ShapeType> shapes;
-  HashMap<String, List<ITransformation>> transformations;
-  HashMap<String, List<IKeyframe>> keyframes;
+  final IAnimatorModel model;
+  final List<String> shapeOrder;
+  final HashMap<String, ShapeType> shapes;
+  final HashMap<String, List<ITransformation>> transformations;
+  final HashMap<String, List<IKeyframe>> keyframes;
 
   public ModelAdapter() {
     this.model = new AnimatorModel();
@@ -119,8 +117,6 @@ public class ModelAdapter implements AnimationBuilder<IAnimatorModel> {
   @Override
   public AnimationBuilder<IAnimatorModel> declareShape(String name, String type) {
     ShapeType shapeType = ShapeType.fromString(type);
-    if (type.contains("p")) {
-    }
     if (shapeType != null) {
       if (!this.shapeOrder.contains(name)) {
         this.shapeOrder.add(name);

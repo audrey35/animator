@@ -1,16 +1,16 @@
 package model;
 
 public class AShape implements IShape {
-  String name;
-  ShapeType type;
-  int t;
-  int x;
-  int y;
-  int w;
-  int h;
-  int r;
-  int g;
-  int b;
+  final String name;
+  final ShapeType type;
+  final int t;
+  final int x;
+  final int y;
+  final int w;
+  final int h;
+  final int r;
+  final int g;
+  final int b;
 
   public AShape(ShapeType shapeType, String name, int t, int x, int y, int w, int h,
                 int r, int g, int b) {
