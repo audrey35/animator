@@ -1,4 +1,4 @@
-package model;
+package model.transformation;
 
 public interface ITransformation extends Comparable<ITransformation> {
   int getInitialTime();

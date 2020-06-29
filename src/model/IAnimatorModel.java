@@ -3,9 +3,16 @@ package model;
 import java.util.HashMap;
 import java.util.List;
 
+import model.keyframe.IKeyframe;
+import model.shape.IReadOnlyShape;
+import model.shape.ShapeType;
+import model.transformation.ITransformation;
+
 public interface IAnimatorModel {
   void addShape(ShapeType type, String name, int t, int x, int y, int w, int h,
                 int r, int g, int b);
+
+  void addKeyFrame(String name, IKeyframe keyframe);
 
   void addKeyFrames(String name, List<IKeyframe> keyframes);
 
@@ -13,13 +20,11 @@ public interface IAnimatorModel {
 
   void setBounds(int x, int y, int width, int height);
 
+  void setSpeed(int speed);
+
   List<String> getShapeOrder();
 
-  HashMap<String, IShape> getShapes();
-
-  HashMap<String, List<ITransformation>> getTransformations();
-
-  HashMap<String, List<IKeyframe>> getKeyframes();
+  HashMap<String, IReadOnlyShape> getShapes();
 
   int getBoundLeft();
 
@@ -28,6 +33,4 @@ public interface IAnimatorModel {
   int getBoundWidth();
 
   int getBoundHeight();
-
-  void addSpeed(int speed);
 }

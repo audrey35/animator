@@ -1,11 +1,11 @@
 package view;
 
-import model.IAnimatorModel;
+import model.IReadOnlyAnimatorModel;
 
 public class VisualView implements IView {
-  final IAnimatorModel model;
+  final IReadOnlyAnimatorModel model;
 
-  public VisualView(IAnimatorModel model) {
+  public VisualView(IReadOnlyAnimatorModel model) {
     this.model = model;
   }
 

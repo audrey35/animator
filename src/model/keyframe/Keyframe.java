@@ -1,4 +1,4 @@
-package model;
+package model.keyframe;
 
 public class Keyframe implements IKeyframe {
   final String shapeName;
@@ -83,6 +83,6 @@ public class Keyframe implements IKeyframe {
             && this.getHeight() == other.getHeight()
             && this.getRed() == other.getRed()
             && this.getGreen() == other.getGreen()
-            && this.getBlue() == this.getBlue();
+            && this.getBlue() == other.getBlue();
   }
 }

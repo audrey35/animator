@@ -1,4 +1,4 @@
-package model;
+package model.transformation;
 
 public class ATransformation implements ITransformation {
   final String shapeName;

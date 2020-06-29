@@ -1,4 +1,4 @@
-package model;
+package model.shape;
 
 public class ShapeFactory {
   public static IShape createShape(ShapeType shapeType, String name, int t, int x, int y,

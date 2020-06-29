@@ -1,6 +1,6 @@
 package view;
 
-import model.IAnimatorModel;
+import model.IReadOnlyAnimatorModel;
 
 public class ViewFactory {
   /**
@@ -12,7 +12,7 @@ public class ViewFactory {
    * @return appropriate view.
    */
 
-  public static IView createView(ViewType viewType, IAnimatorModel model, String outPath) {
+  public static IView createView(ViewType viewType, IReadOnlyAnimatorModel model, String outPath) {
     if (viewType == ViewType.SVG) {
       return new SVGView(model, outPath);
     } else if (viewType == ViewType.VISUAL) {

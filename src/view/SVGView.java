@@ -5,20 +5,20 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import model.ColorTransformation;
-import model.IAnimatorModel;
-import model.IShape;
-import model.ITransformation;
-import model.MoveTransformation;
-import model.ScaleTransformation;
-import model.ShapeType;
+import model.IReadOnlyAnimatorModel;
+import model.shape.IReadOnlyShape;
+import model.transformation.ColorTransformation;
+import model.transformation.ITransformation;
+import model.transformation.MoveTransformation;
+import model.transformation.ScaleTransformation;
+import model.shape.ShapeType;
 
 public class SVGView implements IView {
-  final IAnimatorModel model;
+  final IReadOnlyAnimatorModel model;
   final String outputPath;
   String svg;
 
-  public SVGView(IAnimatorModel model, String outputPath) {
+  public SVGView(IReadOnlyAnimatorModel model, String outputPath) {
     this.model = model;
     this.outputPath = outputPath;
     this.svg = "";
@@ -49,16 +49,11 @@ public class SVGView implements IView {
   private void createSVG() {
     this.addHeader();
     List<String> shapeOrder = this.model.getShapeOrder();
-    HashMap<String, IShape> shapes = this.model.getShapes();
-    HashMap<String, List<ITransformation>> transformations = this.model.getTransformations();
-    IShape shape;
-    List<ITransformation> trans;
+    HashMap<String, IReadOnlyShape> shapes = this.model.getShapes();
+    IReadOnlyShape shape;
     for (String name : shapeOrder) {
       shape = shapes.get(name);
-      if (transformations.containsKey(name)) {
-        trans = transformations.get(name);
-        this.addShapeSVG(shape, trans);
-      }
+      this.addShapeSVG(shape);
     }
     this.svg += "</svg>";
   }
@@ -71,7 +66,7 @@ public class SVGView implements IView {
             this.model.getBoundWidth(), this.model.getBoundHeight());
   }
 
-  private void addShapeSVG(IShape shape, List<ITransformation> transformations) {
+  private void addShapeSVG(IReadOnlyShape shape) {
     String svg;
     String end = "";
     if (shape.getType() == ShapeType.RECTANGLE) {
@@ -90,6 +85,8 @@ public class SVGView implements IView {
       this.svg += svg;
       end = "</ellipse>\n";
     }
+
+    List<ITransformation> transformations = shape.getTransformations();
 
     for (ITransformation t : transformations) {
       this.addTransformationSVG(shape.getType(), t);

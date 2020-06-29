@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import model.IKeyframe;
-import model.ITransformation;
-import model.Keyframe;
-import model.MoveTransformation;
-
-import static org.junit.Assert.*;
+import model.keyframe.IKeyframe;
+import model.transformation.ITransformation;
+import model.keyframe.Keyframe;
+import model.transformation.MoveTransformation;
 
 public class AnimatorModelTest {
   @Test

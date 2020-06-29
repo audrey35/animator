@@ -1,10 +1,6 @@
-package model;
+package model.keyframe;
 
-public interface IShape {
-  String getName();
-
-  ShapeType getType();
-
+public interface IKeyframe extends Comparable<IKeyframe> {
   int getTime();
 
   int getX();

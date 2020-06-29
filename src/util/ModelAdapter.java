@@ -7,11 +7,11 @@ import java.util.List;
 
 import model.AnimatorModel;
 import model.IAnimatorModel;
-import model.IKeyframe;
-import model.ITransformation;
-import model.Keyframe;
-import model.ShapeType;
-import model.TransformationFactory;
+import model.keyframe.IKeyframe;
+import model.transformation.ITransformation;
+import model.keyframe.Keyframe;
+import model.shape.ShapeType;
+import model.transformation.TransformationFactory;
 
 public class ModelAdapter implements AnimationBuilder<IAnimatorModel> {
 

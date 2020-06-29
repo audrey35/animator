@@ -1,4 +1,4 @@
-package model;
+package model.transformation;
 
 public class ColorTransformation extends ATransformation {
   public ColorTransformation(String shapeName,

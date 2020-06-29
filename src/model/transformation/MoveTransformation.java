@@ -1,4 +1,4 @@
-package model;
+package model.transformation;
 
 public class MoveTransformation extends ATransformation {
   public MoveTransformation(String shapeName,

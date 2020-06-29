@@ -1,4 +1,4 @@
-package model;
+package model.transformation;
 
 public class ScaleTransformation extends ATransformation {
   public ScaleTransformation(String shapeName,
