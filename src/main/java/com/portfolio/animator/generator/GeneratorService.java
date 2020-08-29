@@ -20,26 +20,26 @@ public class GeneratorService {
     public List<String> getAnimationNames() {
         List<String> options = new ArrayList<>();
         options.add("City At Night");
-        options.add("Big Bang");
+//        options.add("Big Bang");
         options.add("Simple Shapes");
         options.add("Towers of Hanoi");
         options.add("3 Towers of Hanoi");
         options.add("5 Towers of Hanoi");
-        options.add("8 Towers of Hanoi");
-        options.add("12 Towers of Hanoi");
+//        options.add("8 Towers of Hanoi");
+//        options.add("12 Towers of Hanoi");
         return options;
     }
 
     public List<String> getAnimations() {
         List<String> animations = new ArrayList<>();
         animations.add(this.getAnimation("buildings.txt"));
-        animations.add(this.getAnimation("big-bang-big-crunch.txt"));
+//        animations.add(this.getAnimation("big-bang-big-crunch.txt"));
         animations.add(this.getAnimation("smalldemo.txt"));
         animations.add(this.getAnimation("hanoi.txt"));
         animations.add(this.getAnimation("toh-3.txt"));
         animations.add(this.getAnimation("toh-5.txt"));
-        animations.add(this.getAnimation("toh-8.txt"));
-        animations.add(this.getAnimation("toh-12.txt"));
+//        animations.add(this.getAnimation("toh-8.txt"));
+//        animations.add(this.getAnimation("toh-12.txt"));
         return animations;
     }
 
