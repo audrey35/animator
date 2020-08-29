@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Animator</title>
+</head>
+<body>
+    <h1>Animator</h1>
+    <label for="animation">Choose an animation:</label>
+    <select name="animation" id="animation" onchange="update();">
+        <option hidden disabled selected value> -- select an option -- </option>
+        <option th:each="i : ${options}" th:value="${i}" th:text="${i}">
+    </select>
+    <div id="container">
+
+    </div>
+    <script th:inline="javascript">
+        function update() {
+            var selected = document.getElementById('animation').value;
+            var svgs = /*[[${animations.get(0)}]]*/ 'default';
+            if (selected === "City At Night") {
+                svgs = /*[[${animations.get(0)}]]*/ 'default';
+            } else if (selected === "Big Bang") {
+                svgs = /*[[${animations.get(1)}]]*/ 'default';
+            } else if (selected === "Simple Shapes") {
+                svgs = /*[[${animations.get(2)}]]*/ 'default';
+            } else if (selected === "Towers of Hanoi") {
+                svgs = /*[[${animations.get(3)}]]*/ 'default';
+            } else if (selected === "3 Towers of Hanoi") {
+                svgs = /*[[${animations.get(4)}]]*/ 'default';
+            } else if (selected === "5 Towers of Hanoi") {
+                svgs = /*[[${animations.get(5)}]]*/ 'default';
+            } else if (selected === "8 Towers of Hanoi") {
+                svgs = /*[[${animations.get(6)}]]*/ 'default';
+            } else if (selected === "12 Towers of Hanoi") {
+                svgs = /*[[${animations.get(7)}]]*/ 'default';
+            }
+            let parser = new DOMParser();
+            let doc = parser.parseFromString(svgs, "image/svg+xml");
+            let element = document.getElementById("container");
+            element.replaceChild(doc.lastChild, element.lastChild)
+        }
+    </script>
+</body>
+</html>
