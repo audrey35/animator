@@ -26,6 +26,8 @@ public interface IAnimatorModel {
 
   HashMap<String, IReadOnlyShape> getShapes();
 
+  List<IReadOnlyShape> getShapesAt(int tick);
+
   int getBoundLeft();
 
   int getBoundTop();
@@ -33,4 +35,6 @@ public interface IAnimatorModel {
   int getBoundWidth();
 
   int getBoundHeight();
+
+  int getSpeed();
 }

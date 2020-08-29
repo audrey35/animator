@@ -10,6 +10,8 @@ public interface IReadOnlyAnimatorModel {
 
   HashMap<String, IReadOnlyShape> getShapes();
 
+  List<IReadOnlyShape> getShapesAt(int tick);
+
   int getBoundLeft();
 
   int getBoundTop();
@@ -17,4 +19,6 @@ public interface IReadOnlyAnimatorModel {
   int getBoundWidth();
 
   int getBoundHeight();
+
+  int getSpeed();
 }

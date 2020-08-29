@@ -118,6 +118,18 @@ public class AnimatorModel implements IAnimatorModel, IReadOnlyAnimatorModel {
   }
 
   @Override
+  public List<IReadOnlyShape> getShapesAt(int tick) {
+    List<IReadOnlyShape> newShapes = new ArrayList<>();
+    IReadOnlyShape shape;
+    for (String name : this.shapeOrder) {
+      shape = (IReadOnlyShape) this.shapes.get(name);
+      shape = (IReadOnlyShape) shape.getShapeAt(tick);
+      newShapes.add(shape);
+    }
+    return newShapes;
+  }
+
+  @Override
   public int getBoundLeft() {
     return this.x;
   }
@@ -135,5 +147,10 @@ public class AnimatorModel implements IAnimatorModel, IReadOnlyAnimatorModel {
   @Override
   public int getBoundHeight() {
     return this.height;
+  }
+
+  @Override
+  public int getSpeed() {
+    return this.speed;
   }
 }

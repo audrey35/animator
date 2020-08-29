@@ -1,13 +1,15 @@
 package model.shape;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import model.keyframe.IKeyframe;
+import model.keyframe.Keyframe;
 import model.transformation.ITransformation;
 
-public class AShape implements IShape, IReadOnlyShape {
+public abstract class AShape implements IShape, IReadOnlyShape {
   final String name;
   final ShapeType type;
   final int t;
@@ -113,5 +115,14 @@ public class AShape implements IShape, IReadOnlyShape {
   @Override
   public int getBlue() {
     return this.b;
+  }
+
+  int tweening(int initialValue, int finalValue, float timeDiff) {
+    return Math.round((finalValue - initialValue) / timeDiff);
+  }
+
+  @Override
+  public Point getPointAt(int tick) {
+    return new Point(this.getX(), this.getY());
   }
 }

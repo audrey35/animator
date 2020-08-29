@@ -13,7 +13,7 @@ import model.transformation.MoveTransformation;
 import model.transformation.ScaleTransformation;
 import model.shape.ShapeType;
 
-public class SVGView implements IView {
+public class SVGView {
   final IReadOnlyAnimatorModel model;
   final String outputPath;
   String svg;
@@ -24,12 +24,6 @@ public class SVGView implements IView {
     this.svg = "";
   }
 
-  @Override
-  public void render() {
-
-  }
-
-  @Override
   public void render(String outputPath) {
     try {
       FileWriter writer = new FileWriter(this.outputPath, true);

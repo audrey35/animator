@@ -6,9 +6,7 @@ import model.IAnimatorModel;
 import model.IReadOnlyAnimatorModel;
 import util.AnimationReader;
 import util.ModelAdapter;
-import view.IView;
-import view.ViewFactory;
-import view.ViewType;
+import view.SVGView;
 
 public final class Animator {
   public static void main(String[] args) {
@@ -42,10 +40,9 @@ public final class Animator {
       IAnimatorModel model = AnimationReader.parseFile(animationFile, new ModelAdapter());
       model.setSpeed(speed);
       IReadOnlyAnimatorModel rModel = (IReadOnlyAnimatorModel) model;
-      IView view = ViewFactory.createView(ViewType.fromString(viewType), rModel, outPath);
-      assert view != null;
+      SVGView view = new SVGView(rModel, outPath);
       if (outPath.equals("System.out")) {
-        view.render();
+        view.render(outPath);
       } else {
         view.render(outPath);
       }

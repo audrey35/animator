@@ -1,5 +1,6 @@
 package model.shape;
 
+import java.awt.*;
 import java.util.List;
 
 import model.keyframe.IKeyframe;
@@ -29,4 +30,10 @@ public interface IReadOnlyShape {
   int getGreen();
 
   int getBlue();
+
+  void draw(Graphics g);
+
+  IShape getShapeAt(int tick);
+
+  Point getPointAt(int tick);
 }
