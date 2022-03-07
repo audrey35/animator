@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Animator</title>
+    <style>
+        h1, p, div {
+            width: 90%;
+            margin: auto;
+        }
+
+        h1, p, div {
+            padding-top: 2%;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Animator</h1>
-    <label for="animation">Choose an animation:</label>
-    <select name="animation" id="animation" onchange="update();">
-        <option hidden disabled selected value> -- select an option -- </option>
-        <option th:each="i : ${options}" th:value="${i}" th:text="${i}">
-    </select>
+    <p>Plain text files like one below were converted to 
+        SVGs using Java, then the resulting SVG files 
+        are deployed to the web using Spring Boot in Java.</p>
+    <div>
+        <label for="animation">Choose an animation:</label>
+        <select name="animation" id="animation" onchange="update();">
+            <option hidden disabled selected value> -- select an option -- </option>
+            <option th:each="i : ${options}" th:value="${i}" th:text="${i}">
+        </select>
+    </div>
+    <br>
     <div id="container">
 
     </div>
